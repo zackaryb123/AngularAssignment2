@@ -1,0 +1,24 @@
+<div>
+  <h1>First Component</h1>
+  {{currentDateTime}}
+  <form class="example-container" [formGroup]="formData" (ngSubmit) = "onSubmit()">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Age" formControlName="age">
+    </mat-form-field>
+    <button mat-button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="formInfo">
+    <p>Name: {{formInfo.name}}</p>
+    <p>Address: {{formInfo.address}}</p>
+    <p>Age: {{formInfo.age}}</p>
+  </div>
+</div>

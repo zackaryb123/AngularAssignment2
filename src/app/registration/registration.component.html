@@ -1,0 +1,38 @@
+<div>
+  <h1>Register Component</h1>
+  <form class="example-container" [formGroup]="formData" (ngSubmit) = "onSubmit()">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Age" formControlName="age">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select matNativeControl formControlName="gender" required>
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{gender.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <button [disabled]="!formData.valid" mat-button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="formInfo">
+    <p>Name: {{formInfo.name}}</p>
+    <p>Address: {{formInfo.address}}</p>
+    <p>Age: {{formInfo.age}}</p>
+    <p>Gender: {{formInfo.gender}}</p>
+    <p>Email: {{formInfo.email}}</p>
+  </div>
+</div>

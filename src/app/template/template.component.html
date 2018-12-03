@@ -1,0 +1,7 @@
+<div>
+  <h1>Template Component</h1>
+  Age: {{age}}
+  <p *ngIf="status; then condition1; else condition2"></p>
+  <ng-template #condition1><p style="color: lawngreen;">Age is greater than 18</p></ng-template>
+  <ng-template #condition2><p style="color: red;">not eligible</p></ng-template>
+</div>

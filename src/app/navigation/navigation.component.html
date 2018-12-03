@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <button *ngIf="(isMobile | async)!.matches" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="first" mat-menu-item>First</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="second" mat-menu-item>Second</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="third" mat-menu-item>Third</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="template" mat-menu-item>Template</button>
+  <button *ngIf="!(isMobile | async)!.matches" routerLink="register" mat-menu-item>Register</button>
+  <mat-menu #menu="matMenu">
+    <button routerLink="first" mat-menu-item>First</button>
+    <button routerLink="second" mat-menu-item>Second</button>
+    <button routerLink="third" mat-menu-item>Third</button>
+    <button routerLink="template" mat-menu-item>Template</button>
+    <button routerLink="register" mat-menu-item>Register</button>
+  </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

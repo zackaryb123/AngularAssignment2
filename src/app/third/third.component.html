@@ -1,0 +1,41 @@
+<div>
+  <h1>Third Component</h1>
+  {{currentDateTime}}
+  <form class="example-container" [formGroup]="formData" (ngSubmit) = "onSubmit()">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select matNativeControl formControlName="city" required>
+          <mat-option *ngFor="let city of cities" [value]="city.value">
+            {{city.viewValue}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button type="submit">Form Display</button>
+  </form>
+
+  <button mat-button (click)="setValues(formData)">Binding Display</button>
+
+  <br>
+  <div *ngIf="bindingInfo">
+    <h3>From Binding</h3>
+    <p>Name: {{bindingInfo.name}}</p>
+    <p>Address: {{bindingInfo.address}}</p>
+    <p>City: {{bindingInfo.city}}</p>
+  </div>
+  <br>
+  <div *ngIf="formInfo">
+    <h3>From Form</h3>
+    <p>Name: {{formInfo.name}}</p>
+    <p>Address: {{formInfo.address}}</p>
+    <p>City: {{formInfo.city}}</p>
+  </div>
+</div>
